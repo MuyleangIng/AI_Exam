@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI / AGI Q&A (Watch Mode)</title>
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#111827;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --accent:#60a5fa;
+      --border:#1f2937;
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    header{
+      position: sticky;
+      top:0;
+      z-index:10;
+      background: rgba(11,15,20,.9);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 14px 10px;
+    }
+    h1{
+      margin:0;
+      font-size: 18px;
+      letter-spacing:.2px;
+    }
+    .sub{
+      margin-top:6px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    main{
+      padding: 12px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      margin: 10px 0;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    details{ padding: 0; }
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding: 14px 14px;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      user-select:none;
+      outline:none;
+      font-size: 16px;
+      font-weight: 650;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    .num{
+      min-width: 28px;
+      height: 28px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius: 999px;
+      background: rgba(96,165,250,.15);
+      border: 1px solid rgba(96,165,250,.35);
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 800;
+      flex: 0 0 auto;
+    }
+    .content{
+      padding: 0 14px 14px;
+      color: var(--text);
+      font-size: 16px;
+    }
+    .content p{ margin: 10px 0 0; }
+    .content ul{
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+    .content li{ margin: 6px 0; }
+    .tag{
+      display:inline-block;
+      margin-top:10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .toolbar{
+      display:flex;
+      gap:8px;
+      padding: 12px 12px 0;
+    }
+    button{
+      flex:1;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #0f172a;
+      color: var(--text);
+      font-weight: 650;
+      font-size: 14px;
+      cursor:pointer;
+    }
+    button:active{ transform: scale(.99); }
+    footer{
+      padding: 14px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align:center;
+    }
+
+    /* Watch-friendly: make text larger on small screens */
+    @media (max-width: 420px){
+      summary{ font-size: 17px; }
+      .content{ font-size: 17px; }
+      h1{ font-size: 17px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AI / AGI — Quick Answers</h1>
+    <div class="sub">Tap a question to open. Made for fast reading on phone/watch.</div>
+  </header>
+
+  <main>
+    <div class="toolbar">
+      <button id="openAll">Open all</button>
+      <button id="closeAll">Close all</button>
+    </div>
+
+    <!-- 1 -->
+    <section class="card">
+      <details>
+        <summary><span class="num">1</span> What does AGI stand for, and difference between AI and AGI?</summary>
+        <div class="content">
+          <p><b>AGI</b> = <b>Artificial General Intelligence</b>.</p>
+          <ul>
+            <li><b>AI</b>: solves <b>specific</b> tasks (narrow). Example: translation, face detection.</li>
+            <li><b>AGI</b>: can learn and reason across <b>many tasks</b> like a human (general). Not achieved yet.</li>
+          </ul>
+          <span class="tag">Key: AI = narrow, AGI = general</span>
+        </div>
+      </details>
+    </section>
+
+    <!-- 2 -->
+    <section class="card">
+      <details>
+        <summary><span class="num">2</span> Challenges of AI and possible solutions</summary>
+        <div class="content">
+          <p><b>Challenges</b></p>
+          <ul>
+            <li>Bad/biased data</li>
+            <li>Black-box models (hard to explain)</li>
+            <li>High compute cost</li>
+            <li>Privacy and ethics risks</li>
+            <li>Deployment + maintenance issues</li>
+          </ul>
+          <p><b>Solutions</b></p>
+          <ul>
+            <li>Improve data quality, reduce bias, good labeling</li>
+            <li>Use explainable AI (XAI)</li>
+            <li>Optimize models + use efficient infrastructure</li>
+            <li>Apply governance, privacy, ethics rules</li>
+            <li>Monitor models, retrain regularly</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- 3 -->
+    <section class="card">
+      <details>
+        <summary><span class="num">3</span> What does SWAT mean? What is an AI SWAT team and role?</summary>
+        <div class="content">
+          <p><b>SWAT</b> = <b>Special Weapons And Tactics</b>.</p>
+          <p><b>AI SWAT team</b> = a small expert group (AI/ML engineer, data engineer, product/domain expert) that rapidly builds AI solutions.</p>
+          <p><b>Role</b></p>
+          <ul>
+            <li>Find high-impact use cases</li>
+            <li>Prototype fast (proof-of-concept)</li>
+            <li>Deploy and support AI adoption</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- 4 -->
+    <section class="card">
+      <details>
+        <summary><span class="num">4</span> ROI meaning, definition, and choosing the True North metric</summary>
+        <div class="content">
+          <p><b>ROI</b> = <b>Return on Investment</b>.</p>
+          <p><b>Definition</b>: measure of profit/value compared to cost.</p>
+          <p><b>Formula</b>: ROI = (Gain − Cost) / Cost.</p>
+          <p><b>True North metric</b> = one key business metric showing real value.</p>
+          <ul>
+            <li>Must align with business goal (ex: revenue, cost savings, retention)</li>
+            <li>Must be measurable and trusted</li>
+            <li>Should reflect long-term success (not vanity metrics)</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- 5 -->
+    <section class="card">
+      <details>
+        <summary><span class="num">5</span> Common Big Data mistakes</summary>
+        <div class="content">
+          <ul>
+            <li>Collecting too much irrelevant data</li>
+            <li>Poor quality: missing values, noise, duplicates</li>
+            <li>Ignoring bias and fairness</li>
+            <li>No clear data governance (ownership, rules)</li>
+            <li>Assuming “more data = better model” always</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- 6 -->
+    <section class="card">
+      <details>
+        <summary><span class="num">6</span> Software 1.0 vs Software 2.0</summary>
+        <div class="content">
+          <ul>
+            <li><b>Software 1.0</b>: humans write rules/code manually.</li>
+            <li><b>Software 2.0</b>: models learn behavior from data (machine learning).</li>
+          </ul>
+          <span class="tag">Software 2.0 = “data + training” instead of rules</span>
+        </div>
+      </details>
+    </section>
+
+    <!-- 7 -->
+    <section class="card">
+      <details>
+        <summary><span class="num">7</span> Agile model vs Waterfall model</summary>
+        <div class="content">
+          <p><b>Waterfall</b></p>
+          <ul>
+            <li>Step-by-step (requirements → design → build → test → release)</li>
+            <li>Hard to change once started</li>
+            <li>Testing mostly late</li>
+          </ul>
+          <p><b>Agile</b></p>
+          <ul>
+            <li>Iterative sprints (build small, test, improve)</li>
+            <li>Flexible requirements</li>
+            <li>Continuous feedback and testing</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- 8 -->
+    <section class="card">
+      <details>
+        <summary><span class="num">8</span> Evaluation metrics to compare predicted vs actual</summary>
+        <div class="content">
+          <p><b>Regression (numbers)</b></p>
+          <ul>
+            <li><b>MAE</b>: average absolute error</li>
+            <li><b>MSE</b>: average squared error</li>
+            <li><b>RMSE</b>: sqrt(MSE), interpretable scale</li>
+            <li><b>R²</b>: how much variance is explained</li>
+          </ul>
+
+          <p><b>Classification (labels)</b></p>
+          <ul>
+            <li><b>Accuracy</b>: correct / total</li>
+            <li><b>Precision</b>: correct positives / predicted positives</li>
+            <li><b>Recall</b>: correct positives / actual positives</li>
+            <li><b>F1</b>: balance of precision and recall</li>
+            <li><b>ROC-AUC</b>: ranking quality across thresholds</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- 9 -->
+    <section class="card">
+      <details>
+        <summary><span class="num">9</span> What is the Machine Intelligence Continuum?</summary>
+        <div class="content">
+          <p>A spectrum showing the growth of intelligent systems:</p>
+          <ul>
+            <li>Rule-based automation</li>
+            <li>Machine learning</li>
+            <li>Deep learning</li>
+            <li>Reinforcement learning</li>
+            <li>AGI (future goal)</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- 10 -->
+    <section class="card">
+      <details>
+        <summary><span class="num">10</span> Which jobs will change as AI becomes advanced?</summary>
+        <div class="content">
+          <p>Many jobs will <b>change</b> (tasks get automated), especially:</p>
+          <ul>
+            <li>Customer support, call centers</li>
+            <li>Data entry, admin work</li>
+            <li>Marketing and content workflows</li>
+            <li>Software development (coding assistance)</li>
+            <li>Healthcare documentation + triage support</li>
+            <li>Manufacturing / quality inspection</li>
+          </ul>
+          <span class="tag">Most roles evolve: humans + AI</span>
+        </div>
+      </details>
+    </section>
+
+    <!-- 12 -->
+    <section class="card">
+      <details>
+        <summary><span class="num">12</span> How can smaller / non-tech orgs compete for AI talent?</summary>
+        <div class="content">
+          <ul>
+            <li>Offer meaningful impact and clear problems</li>
+            <li>Upskill existing employees</li>
+            <li>Use cloud AI tools / AutoML to reduce hiring pressure</li>
+            <li>Partner with universities, startups, consultants</li>
+            <li>Focus on domain-specific AI (your advantage)</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- 13 -->
+    <section class="card">
+      <details>
+        <summary><span class="num">13</span> Why collect the right data before training?</summary>
+        <div class="content">
+          <ul>
+            <li>Models learn patterns only from data</li>
+            <li>Wrong data → wrong predictions</li>
+            <li>Good data reduces bias and improves accuracy</li>
+            <li>Saves time and cost (less rework)</li>
+          </ul>
+          <span class="tag">Data quality > model complexity</span>
+        </div>
+      </details>
+    </section>
+
+    <!-- 14 -->
+    <section class="card">
+      <details>
+        <summary><span class="num">14</span> What factors beyond algorithm decide ML success/failure?</summary>
+        <div class="content">
+          <ul>
+            <li>Data quality, labeling, and coverage</li>
+            <li>Features + preprocessing</li>
+            <li>Domain knowledge / correct problem framing</li>
+            <li>Deployment environment and reliability</li>
+            <li>Monitoring (drift) + retraining plan</li>
+            <li>Business alignment and ROI measurement</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- 15 -->
+    <section class="card">
+      <details>
+        <summary><span class="num">15</span> Main opportunity for AI in enterprise functions right now</summary>
+        <div class="content">
+          <ul>
+            <li>Automate repetitive processes (back office)</li>
+            <li>Decision support (analytics + forecasting)</li>
+            <li>Customer support assistants</li>
+            <li>Personalization (sales/marketing)</li>
+            <li>Efficiency + cost reduction</li>
+          </ul>
+          <span class="tag">Biggest value now: “Augment people”</span>
+        </div>
+      </details>
+    </section>
+
+    <footer>
+      Tip: Tap “Open all” then scroll for fast memorization.
+    </footer>
+  </main>
+
+  <script>
+    const openAllBtn = document.getElementById('openAll');
+    const closeAllBtn = document.getElementById('closeAll');
+    const allDetails = () => Array.from(document.querySelectorAll('details'));
+
+    openAllBtn.addEventListener('click', () => {
+      allDetails().forEach(d => d.open = true);
+    });
+
+    closeAllBtn.addEventListener('click', () => {
+      allDetails().forEach(d => d.open = false);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
