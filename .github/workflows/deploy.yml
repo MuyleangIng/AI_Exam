@@ -1,0 +1,38 @@
+name: Self-Hosted Pipeline
+
+# 1. Trigger: Run on push to main branch
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch: # Allows you to click "Run" manually in the UI
+
+# 2. The Job
+jobs:
+  my-runner-job:
+    name: Build on Local Machine
+    # CRITICAL: This tells GitHub to look for your machine
+    runs-on: self-hosted 
+    
+    # Optional: If you have specific labels (e.g., 'linux', 'gpu'), use a list:
+    # runs-on: [self-hosted, linux, x64]
+
+    steps:
+      # Step 1: Download code from GitHub to your machine
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Step 2: Verify it is running on YOUR machine
+      - name: Check System Info
+        run: |
+          echo "Hostname: $(hostname)"
+          echo "Current Directory: $(pwd)"
+          echo "User: $(whoami)"
+
+      # Step 3: Your actual build commands
+      # (Replace these with what you actually need, e.g., npm install, go build, etc.)
+      - name: Run Build Script
+        run: |
+          echo "Starting build..."
+          # npm install
+          # npm run build
+          echo "Build finished!"
